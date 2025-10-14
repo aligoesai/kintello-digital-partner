@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Brain, Bot, Sparkles, Cpu, Zap, MessageSquare } from "lucide-react";
+import aiServicesImg from "@/assets/ai-services.jpg";
 
 const services = [
   {
@@ -53,9 +54,19 @@ const AIServices = () => {
       
       <main className="pt-24">
         {/* Hero Section */}
-        <section className="py-20 px-4 lg:px-8 bg-gradient-ai text-primary-foreground">
-          <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto text-center">
+        <section className="relative py-32 px-4 lg:px-8 overflow-hidden">
+          <div 
+            className="absolute inset-0 z-0"
+            style={{
+              backgroundImage: `url(${aiServicesImg})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-ai opacity-90 z-0" />
+          
+          <div className="container mx-auto relative z-10">
+            <div className="max-w-4xl mx-auto text-center text-primary-foreground">
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
                 AI Services
               </h1>

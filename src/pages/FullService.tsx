@@ -3,6 +3,8 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Cloud, Shield, Monitor, Headphones, Server, Lock, CheckCircle } from "lucide-react";
+import fullServiceImg from "@/assets/full-service.jpg";
+import securityImg from "@/assets/security.jpg";
 
 const services = [
   {
@@ -53,9 +55,19 @@ const FullService = () => {
       
       <main className="pt-24">
         {/* Hero Section */}
-        <section className="py-20 px-4 lg:px-8 bg-gradient-fullservice text-primary-foreground">
-          <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto text-center">
+        <section className="relative py-32 px-4 lg:px-8 overflow-hidden">
+          <div 
+            className="absolute inset-0 z-0"
+            style={{
+              backgroundImage: `url(${fullServiceImg})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-fullservice opacity-90 z-0" />
+          
+          <div className="container mx-auto relative z-10">
+            <div className="max-w-4xl mx-auto text-center text-primary-foreground">
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
                 Full Service IT
               </h1>
@@ -101,15 +113,24 @@ const FullService = () => {
         {/* Benefits Section */}
         <section className="py-20 px-4 lg:px-8 bg-muted/30">
           <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-bold mb-12 text-center">Ihre Vorteile</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-pillar-fullservice flex-shrink-0 mt-1" />
-                    <span className="text-lg">{benefit}</span>
-                  </div>
-                ))}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+              <div className="relative h-96 rounded-2xl overflow-hidden">
+                <img 
+                  src={securityImg} 
+                  alt="IT Security"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h2 className="text-4xl font-bold mb-8">Ihre Vorteile</h2>
+                <div className="space-y-4">
+                  {benefits.map((benefit, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <CheckCircle className="w-6 h-6 text-pillar-fullservice flex-shrink-0 mt-1" />
+                      <span className="text-lg">{benefit}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

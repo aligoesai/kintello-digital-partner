@@ -2,6 +2,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Target, Users, Lightbulb, Shield, TrendingUp, Handshake } from "lucide-react";
+import teamImg from "@/assets/team-collaboration.jpg";
+import successImg from "@/assets/success.jpg";
 
 const values = [
   {
@@ -105,6 +107,14 @@ const About = () => {
               </p>
             </div>
 
+            <div className="mb-16">
+              <img 
+                src={teamImg} 
+                alt="Kintello Team"
+                className="w-full h-96 object-cover rounded-2xl shadow-lg"
+              />
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
               <Card className="p-8">
                 <div className="w-24 h-24 bg-gradient-to-br from-pillar-fullservice to-pillar-ai rounded-full mx-auto mb-4" />
@@ -131,21 +141,29 @@ const About = () => {
         </section>
 
         {/* Stats Section */}
-        <section className="py-20 px-4 lg:px-8 bg-muted/30">
-          <div className="container mx-auto">
+        <section className="py-20 px-4 lg:px-8 relative overflow-hidden">
+          <div 
+            className="absolute inset-0 z-0 opacity-10"
+            style={{
+              backgroundImage: `url(${successImg})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+          <div className="container mx-auto relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
-              <div>
+              <Card className="p-8 bg-card/90 backdrop-blur">
                 <p className="text-5xl font-bold text-primary mb-2">100+</p>
                 <p className="text-muted-foreground">Microsoft 365 Migrationen</p>
-              </div>
-              <div>
+              </Card>
+              <Card className="p-8 bg-card/90 backdrop-blur">
                 <p className="text-5xl font-bold text-primary mb-2">24/7</p>
                 <p className="text-muted-foreground">Einsatzbereitschaft</p>
-              </div>
-              <div>
+              </Card>
+              <Card className="p-8 bg-card/90 backdrop-blur">
                 <p className="text-5xl font-bold text-primary mb-2">15+</p>
                 <p className="text-muted-foreground">Jahre Erfahrung</p>
-              </div>
+              </Card>
             </div>
           </div>
         </section>

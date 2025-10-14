@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Server, GraduationCap, Brain, ArrowRight } from "lucide-react";
+import fullServiceImg from "@/assets/full-service.jpg";
+import academyImg from "@/assets/academy.jpg";
+import aiServicesImg from "@/assets/ai-services.jpg";
 
 const pillars = [
   {
@@ -10,6 +13,7 @@ const pillars = [
     gradient: "bg-gradient-fullservice",
     shadow: "shadow-pillar-fullservice",
     link: "/full-service",
+    image: fullServiceImg,
     features: [
       "Microsoft 365 & Cloud",
       "IT-Security & Compliance",
@@ -24,6 +28,7 @@ const pillars = [
     gradient: "bg-gradient-academy",
     shadow: "shadow-pillar-academy",
     link: "/academy",
+    image: academyImg,
     features: [
       "IT-Security Schulungen",
       "Microsoft 365 Workshops",
@@ -38,6 +43,7 @@ const pillars = [
     gradient: "bg-gradient-ai",
     shadow: "shadow-pillar-ai",
     link: "/ai-services",
+    image: aiServicesImg,
     features: [
       "Microsoft 365 KI-Integration",
       "Agentic AI & Automatisierung",
@@ -66,11 +72,18 @@ const PillarsSection = () => {
             const Icon = pillar.icon;
             return (
               <Link to={pillar.link} key={index}>
-                <Card className={`p-8 h-full transition-all duration-300 hover:scale-105 ${pillar.shadow} hover:${pillar.shadow} border-0 relative overflow-hidden group cursor-pointer`}>
-                  <div className={`absolute inset-0 ${pillar.gradient} opacity-5 group-hover:opacity-10 transition-opacity`} />
+                <Card className={`p-0 h-full transition-all duration-300 hover:scale-105 ${pillar.shadow} hover:${pillar.shadow} border-0 relative overflow-hidden group cursor-pointer`}>
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={pillar.image} 
+                      alt={pillar.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className={`absolute inset-0 ${pillar.gradient} opacity-40`} />
+                  </div>
                   
-                  <div className="relative z-10">
-                    <div className={`w-16 h-16 ${pillar.gradient} rounded-xl flex items-center justify-center mb-6`}>
+                  <div className="p-8">
+                    <div className={`w-16 h-16 ${pillar.gradient} rounded-xl flex items-center justify-center mb-6 -mt-16 relative z-10 border-4 border-card`}>
                       <Icon className="w-8 h-8 text-primary-foreground" />
                     </div>
 
