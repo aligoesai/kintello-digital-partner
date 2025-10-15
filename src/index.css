@@ -52,7 +52,8 @@ All colors MUST be HSL.
     --pillar-ai-dark: 271 76% 40%;
 
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(220 25% 20%) 0%, hsl(220 25% 35%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--pillar-fullservice-dark)) 0%, hsl(var(--pillar-academy-dark)) 50%, hsl(var(--pillar-ai-dark)) 100%);
+    --gradient-hero-overlay: linear-gradient(120deg, hsla(var(--pillar-fullservice), 0.15) 0%, hsla(var(--pillar-academy), 0.15) 50%, hsla(var(--pillar-ai), 0.15) 100%);
     --gradient-fullservice: linear-gradient(135deg, hsl(var(--pillar-fullservice)) 0%, hsl(var(--pillar-fullservice-dark)) 100%);
     --gradient-academy: linear-gradient(135deg, hsl(var(--pillar-academy)) 0%, hsl(var(--pillar-academy-dark)) 100%);
     --gradient-ai: linear-gradient(135deg, hsl(var(--pillar-ai)) 0%, hsl(var(--pillar-ai-dark)) 100%);
@@ -61,9 +62,13 @@ All colors MUST be HSL.
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
     --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
-    --shadow-fullservice: 0 8px 24px hsla(var(--pillar-fullservice), 0.25);
-    --shadow-academy: 0 8px 24px hsla(var(--pillar-academy), 0.25);
-    --shadow-ai: 0 8px 24px hsla(var(--pillar-ai), 0.25);
+    --shadow-fullservice: 0 8px 24px hsla(var(--pillar-fullservice), 0.35);
+    --shadow-academy: 0 8px 24px hsla(var(--pillar-academy), 0.35);
+    --shadow-ai: 0 8px 24px hsla(var(--pillar-ai), 0.35);
+    
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     /* Sidebar */
     --sidebar-background: 0 0% 98%;

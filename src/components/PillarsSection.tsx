@@ -72,36 +72,44 @@ const PillarsSection = () => {
             const Icon = pillar.icon;
             return (
               <Link to={pillar.link} key={index}>
-                <Card className={`p-0 h-full transition-all duration-300 hover:scale-105 ${pillar.shadow} hover:${pillar.shadow} border-0 relative overflow-hidden group cursor-pointer`}>
+                <Card className={`p-0 h-full transition-all duration-500 hover:scale-105 hover:-translate-y-2 ${pillar.shadow} hover:${pillar.shadow} border-0 relative overflow-hidden group cursor-pointer`}>
                   <div className="relative h-48 overflow-hidden">
                     <img 
                       src={pillar.image} 
                       alt={pillar.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700"
                     />
-                    <div className={`absolute inset-0 ${pillar.gradient} opacity-40`} />
+                    <div className={`absolute inset-0 ${pillar.gradient} opacity-40 group-hover:opacity-50 transition-opacity duration-500`} />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500" />
                   </div>
                   
-                  <div className="p-8">
-                    <div className={`w-16 h-16 ${pillar.gradient} rounded-xl flex items-center justify-center mb-6 -mt-16 relative z-10 border-4 border-card`}>
-                      <Icon className="w-8 h-8 text-primary-foreground" />
+                  <div className="p-8 relative">
+                    <div className={`w-16 h-16 ${pillar.gradient} rounded-xl flex items-center justify-center mb-6 -mt-16 relative z-10 border-4 border-card shadow-lg group-hover:rotate-12 group-hover:scale-110 transition-all duration-500`}>
+                      <Icon className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform duration-300" />
                     </div>
 
-                    <h3 className="text-2xl font-bold mb-3">{pillar.title}</h3>
-                    <p className="text-muted-foreground mb-6">{pillar.description}</p>
+                    <h3 className="text-2xl font-bold mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r" 
+                        style={{ backgroundImage: `var(${pillar.gradient.replace('bg-', '--')})` }}>
+                      {pillar.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-6 group-hover:text-foreground transition-colors duration-300">{pillar.description}</p>
 
                     <ul className="space-y-2 mb-6">
                       {pillar.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <span className={`w-1.5 h-1.5 ${pillar.gradient} rounded-full mt-2 mr-3 flex-shrink-0`} />
-                          <span className="text-sm">{feature}</span>
+                        <li key={idx} className="flex items-start group/item">
+                          <span className={`w-1.5 h-1.5 ${pillar.gradient} rounded-full mt-2 mr-3 flex-shrink-0 group-hover:scale-150 transition-transform duration-300`} 
+                               style={{ transitionDelay: `${idx * 50}ms` }} />
+                          <span className="text-sm group-hover/item:translate-x-1 transition-transform duration-300">{feature}</span>
                         </li>
                       ))}
                     </ul>
 
-                    <div className="flex items-center text-sm font-semibold group-hover:gap-2 transition-all">
-                      <span>Mehr erfahren</span>
-                      <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    <div className="flex items-center text-sm font-semibold group-hover:gap-2 transition-all duration-300">
+                      <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r" 
+                            style={{ backgroundImage: `var(${pillar.gradient.replace('bg-', '--')})` }}>
+                        Mehr erfahren
+                      </span>
+                      <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-2 transition-transform duration-300" />
                     </div>
                   </div>
                 </Card>
